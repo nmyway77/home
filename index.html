@@ -1,95 +1,155 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>수능완성 2000 – 단어 클릭 및 뜻 보기 예제</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width= device-width, initial-scale=1.0">
+  <title>학원이름</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 10px; }
-    #showWords {
-      padding: 10px 20px; font-size: 16px;
-      background-color: #4CAF50; color: white;
-      border: 2px solid #4CAF50; border-radius: 8px;
-      cursor: pointer; outline: none; margin-bottom: 10px;
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6fa;
     }
-    #showWords:hover { background-color: white; color: #4CAF50; }
-    #meaningBox {
-      position: sticky; top: 0; background: #fff;
-      padding: 10px; font-size: 18px; color: #333;
-      border-bottom: 1px solid #ccc; z-index: 10;
-      margin-bottom: 10px;
+    .header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 32px 0 24px 0;
+      text-align: center;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
-    #wordList { padding-bottom: 20px; }
-    .lessonHeading { margin-top: 20px; font-size: 20px; font-weight: bold; }
-    .wordItem { display: inline-block; font-size: 20px;
-      cursor: pointer; margin: 5px; padding: 5px 10px;
-      background: #f0f0f0; border-radius: 4px;
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(4, 140px);
+      gap: 18px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .grid-item {
+      background: #e9eef5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s;
+    }
+    .grid-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    }
+    .grid-item img {
+      width: 90%;
+      height: auto;
+      max-height: 110px;
+      object-fit: contain;
+      display: block;
+    }
+    .grid-item a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    @media (max-width: 700px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 140px);
+        max-width: 98vw;
+      }
     }
   </style>
 </head>
 <body>
-  <button id="showWords">단어 목록 전체 보기</button>
-  <div id="meaningBox">단어를 클릭하면 뜻이 이곳에 표시됩니다.</div>
-  <div id="wordList"></div>
+  <div class="header">
+    목동서로영어학원
+  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const dictionary = [
-        { heading: '1과 단어' },
-        { word: 'apple',     meaning: '사과' },
-        { word: 'banana',    meaning: '바나나' },
-        { word: 'grape',     meaning: '포도' },
-        { heading: '2과 단어' },
-        { word: 'delicious', meaning: '맛있는' },
-        { word: 'fruit',     meaning: '과일' }
-      ];
+  <div class="grid-container">
+    <div class="grid-item">
+      <a href="https://nmyway77.github.io/highorigin/" target="_blank">
+        <img src="https://shopping-phinf.pstatic.net/main_3246303/32463036645.20230927071426.jpg?type=w300" alt="Book 1">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://google.com" target="_blank">
+        <img src="https://shopping-phinf.pstatic.net/main_3654620/36546201620.20230718122628.jpg?type=w300" alt="Book 2">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://nmyway77.github.io/word200/" target="_blank">
+        <img src="https://dummyimage.com/110x110/ccc/fff&text=Book+3" alt="Book 3">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="#" target="_blank">
+        <img src="https://dummyimage.com/110x110/ccc/fff&text=Book+4" alt="Book 4">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="#" target="_blank">
+        <img src="https://dummyimage.com/110x110/ccc/fff&text=Book+5" alt="Book 5">
+      </a>
+    </div>
 
-      const showBtn = document.getElementById('showWords');
-      const wordListDiv = document.getElementById('wordList');
-      const meaningBox = document.getElementById('meaningBox');
+    <!-- 아래도 같은 방식으로 계속 추가 -->
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+6" alt="Book 6"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+7" alt="Book 7"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+8" alt="Book 8"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+9" alt="Book 9"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+10" alt="Book 10"></a>
+    </div>
 
-      // TTS 발음 재생 (Web Speech API 우선, 실패 시 Google TTS)
-      function speak(word) {
-        if (window.speechSynthesis && 'SpeechSynthesisUtterance' in window) {
-          try {
-            const utter = new SpeechSynthesisUtterance(word);
-            utter.lang = 'en-US';
-            speechSynthesis.speak(utter);
-            return;
-          } catch (e) {
-            console.warn('Web Speech API 실패, Google TTS로 대체:', e);
-          }
-        }
-        // Google Translate TTS fallback
-        const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encodeURIComponent(word)}`;
-        const audio = new Audio(url);
-        audio.play().catch(err => console.error('Audio 재생 실패:', err));
-      }
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+11" alt="Book 11"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+12" alt="Book 12"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+13" alt="Book 13"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+14" alt="Book 14"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+15" alt="Book 15"></a>
+    </div>
 
-      function renderWords() {
-        wordListDiv.innerHTML = '';
-        dictionary.forEach(entry => {
-          if (entry.heading) {
-            const h = document.createElement('div');
-            h.textContent = entry.heading;
-            h.className = 'lessonHeading';
-            wordListDiv.appendChild(h);
-          } else {
-            const span = document.createElement('span');
-            span.textContent = entry.word;
-            span.className = 'wordItem';
-            span.addEventListener('click', () => {
-              meaningBox.textContent = `${entry.word} → ${entry.meaning}`;
-              speak(entry.word);
-            });
-            wordListDiv.appendChild(span);
-          }
-        });
-      }
-
-      showBtn.addEventListener('click', renderWords);
-      renderWords();
-    });
-  </script>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+16" alt="Book 16"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+17" alt="Book 17"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+18" alt="Book 18"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+19" alt="Book 19"></a>
+    </div>
+    <div class="grid-item">
+      <a href="#"><img src="https://dummyimage.com/110x110/ccc/fff&text=Book+20" alt="Book 20"></a>
+    </div>
+  </div>
 </body>
 </html>
